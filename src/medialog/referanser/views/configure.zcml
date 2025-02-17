@@ -17,7 +17,7 @@
 
   <browser:page
     name="referanse-view"
-    for="Referanse"
+    for="*"
     class=".referanse_view.ReferanseView"
     template="referanse_view.pt"
     permission="zope2.View"

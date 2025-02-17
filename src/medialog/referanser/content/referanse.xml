@@ -1,9 +1,18 @@
 <model
     xmlns="http://namespaces.plone.org/supermodel/schema"
     xmlns:security="http://namespaces.plone.org/supermodel/security"
+      xmlns:marshal="http://namespaces.plone.org/supermodel/marshal"
     xmlns:form="http://namespaces.plone.org/supermodel/form"
     xmlns:i18n="http://xml.zope.org/namespaces/i18n"
     i18n:domain="medialog.referanser">
   <schema>
-  </schema>
+  <field name="link_url" type="zope.schema.URI">
+    <description/>   
+    <title>Link_url</title>
+  </field>
+    <field name="image_url" type="zope.schema.URI">
+    <description/>   
+    <title>Image (logo) url</title>
+  </field>
+</schema>
 </model>

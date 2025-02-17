@@ -7,11 +7,28 @@
 <body>
   <metal:content-core fill-slot="content-core">
   <metal:block define-macro="content-core">
+    <div class="flex flex-wrap">
+      <tal:repeat  tal:repeat="item  context/@@contentlisting">  
+      <div class="bg-white border rounded referencecard xflex p-10 p-4 m-10">    
+      <a href="${item/link_url|None}">
+        <img class="h-10 w-auto max-w-[180px] mb-4 object-contain object-center mr-auto"
+            src="${item/image_url}" 
+            alt="Logo ${item/title|None}" />
+        <h3 class="text-xl font-bold mb-2">${item/title|None}</h3>
+          </a>
+        <p class="text-r-sm"><b>${item/Description|None}</b></p>
+        <tal:block define="value nocall:item/text|nothing;
+                      output_relative_to nocall:value/@@output_relative_to|nothing"
+            tal:condition="output_relative_to"
+            tal:content="structure python:output_relative_to(context)" />
+      </div> 
+  </tal:repeat>
+  <style>
+    .flex { display: flex; flex-wrap: wrap}
+    .m-10 {margin: 10px;}
+  </style>
 
-      <h2 i18n:translate="">Sample View</h2>
-      <!--<div tal:replace="view/my_custom_view_method" />-->
-      <!--<div tal:replace="context/my_custom_field" />-->
-
+  </div>
   </metal:block>
   </metal:content-core>
 </body>
