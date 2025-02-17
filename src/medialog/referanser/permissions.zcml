@@ -6,6 +6,12 @@
   <configure zcml:condition="installed AccessControl.security">
   <!-- -*- extra stuff goes here -*- -->
 
+    <permission
+        id="medialog.referanser.AddReferanse"
+        title="medialog.referanser: Add Referanse"
+    />
+
+
 
   </configure>
 
