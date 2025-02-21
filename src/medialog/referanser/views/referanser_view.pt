@@ -4,7 +4,7 @@
   xmlns:i18n="http://xml.zope.org/namespaces/i18n" i18n:domain="medialog.referanser" metal:use-macro="context/main_template/macros/master">
   <body>
     <metal:content-core fill-slot="content">
-      <metal:block define-macro="content">
+      <metal:block define-macro="content-core">
         <div class="container">
           <img class="fender-pluss-logo" src="https://www.fender.no/bilder/fender-pluss-morkebla-rod.png"/ >
             <a class="button btn forsikringstilbud" href="https://www.fender.no/privat/fa-tilbud" aria-label="Forsikringtilbud">
@@ -15,7 +15,7 @@
             <tal:repeat tal:repeat="item  context/@@contentlisting">
               <div class="bg-white border rounded referencecard">
                 <a href="${item/link_url|None}" aria-label="Link to ${item/Title|None}" class="button btn standalone">
-                  <img class="object-contain object-center margin-0 m-0" src="${item/getURL}/@@images/image" alt="Logo ${item/Title|None}" />
+                  <img class="object-contain object-center margin-0" src="${item/getURL}/@@images/image" alt="Logo ${item/Title|None}" />
                   <!-- <h3 class="text-xl font-bold mb-2">${item/title|None}</h3> -->
                 </a>
 
