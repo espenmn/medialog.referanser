@@ -25,7 +25,7 @@
                   <b>${item/Description|None}</b>
                 </p>
                 <a class="button btn stanalone" href="${item/link_url|None}" aria-label="Link to ${item/Title|None}">
-          Info
+                  Info
                 </a>
 
               </div>
