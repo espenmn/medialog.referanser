@@ -10,9 +10,5 @@
     <description/>   
     <title>Link_url</title>
   </field>
-    <field name="image_url" type="zope.schema.URI">
-    <description/>   
-    <title>Image (logo) url</title>
-  </field>
 </schema>
 </model>

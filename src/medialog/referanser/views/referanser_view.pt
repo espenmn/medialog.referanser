@@ -1,35 +1,38 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:metal="http://xml.zope.org/namespaces/metal"
-      xmlns:tal="http://xml.zope.org/namespaces/tal"
-      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
-      i18n:domain="medialog.referanser"
-      metal:use-macro="context/main_template/macros/master">
-<body>
-  <metal:content-core fill-slot="content-core">
-  <metal:block define-macro="content-core">
-    <div class="flex flex-wrap referanseoversikt">
-      <tal:repeat  tal:repeat="item  context/@@contentlisting">  
-      <div class="bg-white border rounded referencecard xflex p-10 p-4 m-10">    
-      <a href="${item/link_url|None}">
-        <img class="h-10 w-auto max-w-[180px] mb-4 object-contain object-center mr-auto"
-            src="${item/image_url}" 
-            alt="Logo ${item/title|None}" />
-        <h3 class="text-xl font-bold mb-2">${item/title|None}</h3>
-          </a>
-        <p class="text-r-sm"><b>${item/Description|None}</b></p>
-        <tal:block define="value nocall:item/text|nothing;
-                      output_relative_to nocall:value/@@output_relative_to|nothing"
-            tal:condition="output_relative_to"
-            tal:content="structure python:output_relative_to(context)" />
-      </div> 
-  </tal:repeat>
-  <style>
-    .flex { display: flex; flex-wrap: wrap}
-    .m-10 {margin: 10px;}
-  </style>
+  xmlns:metal="http://xml.zope.org/namespaces/metal"
+  xmlns:tal="http://xml.zope.org/namespaces/tal"
+  xmlns:i18n="http://xml.zope.org/namespaces/i18n" i18n:domain="medialog.referanser" metal:use-macro="context/main_template/macros/master">
+  <body>
+    <metal:content-core fill-slot="content">
+      <metal:block define-macro="content">
+        <div class="container">
+          <img class="fender-pluss-logo" src="https://www.fender.no/bilder/fender-pluss-morkebla-rod.png"/ >
+            <a class="button btn forsikringstilbud" href="https://www.fender.no/privat/fa-tilbud" aria-label="Forsikringtilbud">
+       Få Foriskringstilbud
+            </a>
+          </div>
+          <div class="flex flex-wrap flex-center referanseoversikt">
+            <tal:repeat tal:repeat="item  context/@@contentlisting">
+              <div class="bg-white border rounded referencecard">
+                <a href="${item/link_url|None}" aria-label="Link to ${item/Title|None}" class="button btn standalone">
+                  <img class="object-contain object-center margin-0 m-0" src="${item/getURL}/@@images/image" alt="Logo ${item/Title|None}" />
+                  <!-- <h3 class="text-xl font-bold mb-2">${item/title|None}</h3> -->
+                </a>
 
-  </div>
-  </metal:block>
-  </metal:content-core>
-</body>
-</html>
+                <tal:block define="value nocall:item/text|nothing;
+                      output_relative_to nocall:value/@@output_relative_to|nothing" tal:condition="output_relative_to" tal:content="structure python:output_relative_to(context)" />
+                <p class="text-r-sm">
+                  <b>${item/Description|None}</b>
+                </p>
+                <a class="button btn stanalone" href="${item/link_url|None}" aria-label="Link to ${item/Title|None}">
+          Info
+                </a>
+
+              </div>
+            </tal:repeat>
+
+          </div>
+        </metal:block>
+      </metal:content-core>
+    </body>
+  </html>
