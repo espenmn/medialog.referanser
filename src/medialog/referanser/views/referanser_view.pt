@@ -5,7 +5,7 @@
   <body>
     <metal:content-core fill-slot="content-core">
       <metal:block define-macro="content-core">
-        <div class="container">
+        <div class="container logocontainer">
           <img class="fender-pluss-logo" src="https://www.fender.no/bilder/fender-pluss-morkebla-rod.png"/ >
           <a class="button btn forsikringstilbud" href="https://www.fender.no/privat/fa-tilbud" aria-label="Forsikringtilbud">
               Få Foriskringstilbud
@@ -14,7 +14,7 @@
         <div class="flex flex-wrap flex-center referanseoversikt">
           <tal:repeat tal:repeat="item  context/@@contentlisting">
               <div class="bg-white border rounded referencecard">
-                <a href="${item/link_url|None}" aria-label="Link to ${item/Title|None}" >
+                <a href="${item/link_url|None}" aria-label="Link to ${item/Title|None}" class="logo_link">
                   <img class="object-contain object-center margin-0" src="${item/getURL}/@@images/image" alt="Logo ${item/Title|None}" />
                   <!-- <h3 class="text-xl font-bold mb-2">${item/title|None}</h3> -->
                 </a>
@@ -24,7 +24,7 @@
                 <p class="text-r-sm">
                   <b>${item/Description|None}</b>
                 </p>
-                <a class="button btn stanalone" href="${item/link_url|None}" aria-label="Link to ${item/Title|None}">
+                <a class="button btn" href="${item/link_url|None}" aria-label="Link to ${item/Title|None}">
                   Info
                 </a>
               </div>
