@@ -5,21 +5,30 @@
       i18n:domain="medialog.referanser"
       metal:use-macro="context/main_template/macros/master">
 <body>
-  <metal:content-core fill-slot="content-core" >
-  <metal:block define-macro="content-core">
+  <metal:content-core fill-slot="content" >
+  <metal:block define-macro="content">
    
   <div class="bg-white border rounded referencecard xflex p-10 p-4">  
   <a href="${context/link_url|None}">
-    <!-- <img class="h-10 w-auto max-w-[180px] mb-4 object-contain object-center mr-auto"
-        src="${context/image_url}" 
-        alt="Logo ${context/Title|None}" /> -->
-    <h3 class="text-xl font-bold mb-2">${context/Title|None}</h3>
-      </a>
-    <p class="text-r-sm"><b>${context/Description|None}</b></p>
-    <tal:block define="value nocall:context/text|nothing;
-                   output_relative_to nocall:value/@@output_relative_to|nothing"
-        tal:condition="output_relative_to"
-        tal:content="structure python:output_relative_to(context)" />
+    <img class="h-10 w-auto max-w-[180px] mb-4 object-contain object-center mr-auto"
+        src="${context/absolute_url}/@@images/image" 
+        alt="Logo ${context/Title|None}" />
+  </a>
+ 
+    <tal:block  tal:condition="not: context/les_mer_side"
+        tal:content="structure context/text/output" />
+
+      <tal:block  tal:condition="context/les_mer_side"
+        tal:content="structure context/les_mer_tekst/output" />
+      
+     <p><a class="button btn" 
+        href="${context/link_url|None}" 
+        aria-label="Link to ${context/Title|None}">
+       Info
+        </a>
+      </p>
+
+        
   </div> 
   </metal:block>
   </metal:content-core>

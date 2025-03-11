@@ -24,9 +24,15 @@
                 <p class="text-r-sm">
                   <b>${item/Description|None}</b>
                 </p>
-                <a class="button btn" href="${item/link_url|None}" aria-label="Link to ${item/Title|None}">
+           
+                <a tal:condition="not: item/les_mer_side|None" 
+                    class="button btn" href="${item/link_url|None}" aria-label="Link to ${item/Title|None}">
                   Info
                 </a>
+                <a tal:condition="item/les_mer_side|None" 
+                    class="button btn" href="${item/getURL}" aria-label="Link to ${item/Title|None}">
+                  Les mer
+                </a> 
               </div>
           </tal:repeat>
         </div>

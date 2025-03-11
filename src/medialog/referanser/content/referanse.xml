@@ -10,5 +10,16 @@
     <description/>   
     <title>Link_url</title>
   </field>
+   <field name="les_mer_tekst" type="plone.app.textfield.RichText">
+      <description/>
+      <required>False</required>
+      <title>Les mer tekst</title>
+    </field>
+    <field name="les_mer_side" type="zope.schema.Bool">
+      <description>Kryss av denne hvis du &#248;nsker at lenken skal f&#248;re til les mer siden f&#248;rst</description>
+      <required>False</required>
+      <title>Les mer side</title>
+      <form:widget type="z3c.form.browser.radio.RadioFieldWidget"/>
+    </field>
 </schema>
 </model>
