@@ -14,7 +14,11 @@
         <div class="flex flex-wrap flex-center referanseoversikt">
           <tal:repeat tal:repeat="item  context/@@contentlisting">
               <div class="bg-white border rounded referencecard">
-                <a href="${item/link_url|None}" aria-label="Link to ${item/Title|None}" class="logo_link">
+                <a tal:condition="item/les_mer_side|None"  href="${item/getURL}" aria-label="Link to ${item/Title|None}" class="logo_link">
+                  <img class="object-contain object-center margin-0" src="${item/getURL}/@@images/image" alt="Logo ${item/Title|None}" />
+                  <!-- <h3 class="text-xl font-bold mb-2">${item/title|None}</h3> -->
+                </a>
+                <a tal:condition="not: item/les_mer_side|None" href="${item/link_url|None}" aria-label="Link to ${item/Title|None}" class="logo_link">
                   <img class="object-contain object-center margin-0" src="${item/getURL}/@@images/image" alt="Logo ${item/Title|None}" />
                   <!-- <h3 class="text-xl font-bold mb-2">${item/title|None}</h3> -->
                 </a>
