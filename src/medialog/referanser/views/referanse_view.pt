@@ -31,6 +31,6 @@
         
   </div> 
   </metal:block>
-  </metal:content>
+  </metal:content-core>
 </body>
 </html>
